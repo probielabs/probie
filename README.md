@@ -1,5 +1,9 @@
 # Probie
 
+[![test](https://github.com/probielabs/probie/actions/workflows/test.yml/badge.svg)](https://github.com/probielabs/probie/actions/workflows/test.yml)
+[![Sourcify: exact match](https://img.shields.io/badge/Sourcify-exact%20match-2ea44f)](https://repo.sourcify.dev/4663/0xe475F59873Eb3EAfCf42b70dF64DcABd071715CB)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
+
 **A learner's permit for AI agents on Robinhood Chain.**
 
 Your agent spends from your own Safe, under a daily limit it earns: $5 a day to start, more after every clean
@@ -12,6 +16,24 @@ happens above it.
 
 This repo holds the Probie contracts, the only code that touches your funds. Both contracts are deployed and
 verified on Robinhood Chain. The site and the live show run on our own servers.
+
+```mermaid
+flowchart LR
+    agent["Your agent"] -->|"pay(to, amount)"| permit["Probie permit<br/>level, payees, today's limit"]
+    permit -->|allowed| module["Safe AllowanceModule<br/>today's ceiling"]
+    module -->|USDG from your Safe| payee["Payee"]
+    permit -->|not allowed| strike["Strike on chain<br/>nothing moves"]
+```
+
+## Documentation
+
+| | |
+|---|---|
+| [How it works](docs/how-it-works.md) | The pieces, one payment step by step, levels, strikes, and who can do what. |
+| [Integrate](docs/integrate.md) | Open a permit from your Safe, pay from your agent, read permits for a dashboard. |
+| [Example](examples/) | One payment with viem, runnable read-only against the live show. |
+| [Security](SECURITY.md) | The hard cap, the audit status, known limits, and how to report a bug. |
+| [Deployments](deployments/robinhood.json) | Every address, the deploy transaction and the verification links. |
 
 ## Deployed on Robinhood Chain (chain id 4663)
 

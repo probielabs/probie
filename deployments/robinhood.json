@@ -1,0 +1,37 @@
+{
+  "chain": "Robinhood Chain",
+  "chainId": 4663,
+  "contracts": {
+    "ProbieFactory": {
+      "address": "0xe475F59873Eb3EAfCf42b70dF64DcABd071715CB",
+      "transactionHash": "0x8df0fbbac3decd6af43a1a0786a44f574d5e96ccd7312ba8f33564339b0ad738",
+      "blockNumber": 116847264,
+      "compiler": "0.8.28+commit.7893614a",
+      "sourcify": "https://repo.sourcify.dev/4663/0xe475F59873Eb3EAfCf42b70dF64DcABd071715CB",
+      "match": "exact_match"
+    },
+    "ProbiePermit": {
+      "address": "0x754Ecd0dCf43249A72057941280060a4Cef546a1",
+      "note": "The implementation every permit clone points at. Created by the factory's constructor, in the same transaction.",
+      "transactionHash": "0x8df0fbbac3decd6af43a1a0786a44f574d5e96ccd7312ba8f33564339b0ad738",
+      "blockNumber": 116847264,
+      "compiler": "0.8.28+commit.7893614a",
+      "sourcify": "https://repo.sourcify.dev/4663/0x754Ecd0dCf43249A72057941280060a4Cef546a1",
+      "match": "exact_match"
+    }
+  },
+  "dependencies": {
+    "AllowanceModule 0.1.1": "0xAA46724893dedD72658219405185Fb0Fc91e091C",
+    "USDG": "0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168",
+    "Safe L2 1.4.1": "0x29fcB43b46531BcA003ddC8FCB67FFE91900C762",
+    "SafeProxyFactory 1.4.1": "0x4e1DCf7AD4e460CfD30791CCC4F9c8a4f820ec67",
+    "MultiSendCallOnly 1.4.1": "0x9641d764fc13c8B624c04430C7356C1C7C8102e2"
+  },
+  "liveShow": {
+    "safe": "0x27057A0a4048D08cf513B406cE17b6F5adFe12c1",
+    "permit": "0xF9e98d1E483920F8484A4c47ecf094F982771511",
+    "agent": "0x407B4880F130b39EB4Aa727E035cB121dB0524e4",
+    "note": "Our own agent on https://probielabs.com: level 0, no approved payees, so every payment it tries is a strike."
+  },
+  "explorer": "https://robinhoodchain.blockscout.com"
+}

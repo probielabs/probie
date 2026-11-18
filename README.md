@@ -27,7 +27,7 @@ flowchart LR
 
 ## Documentation
 
-| | |
+| Read | For |
 |---|---|
 | [How it works](docs/how-it-works.md) | The pieces, one payment step by step, levels, strikes, and who can do what. |
 | [Integrate](docs/integrate.md) | Open a permit from your Safe, pay from your agent, read permits for a dashboard. |

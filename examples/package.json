@@ -1,0 +1,15 @@
+{
+  "name": "probie-examples",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "agent": "tsx agent.ts"
+  },
+  "dependencies": {
+    "viem": "^2.58.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "tsx": "^4.19.0"
+  }
+}

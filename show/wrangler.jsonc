@@ -1,0 +1,36 @@
+// Worker "probie": the live show's API under /api/ (src/index.ts). In production the same Worker also serves the
+// site's static build, which is not in this repo.
+// Secrets (npx wrangler secret put NAME, value on stdin):
+//   SHOW_AGENT_KEY     the show agent's private key: the key its permit was opened for, which can only call pay()
+//   TURNSTILE_SECRET   the Turnstile widget's secret
+//   IP_SALT            random; visitors are counted by a salted HMAC of their IP, never the IP
+//   ANTHROPIC_API_KEY  optional: without it the show agent runs in mock mode (canned English replies, same pay path)
+// Local: npm run dev with the secrets in .dev.vars, Turnstile's test keys and RPC_URL at an anvil fork.
+{
+  "name": "probie",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-11-17",
+  "d1_databases": [{ "binding": "DB", "database_name": "probie", "database_id": "<your D1 database id>" }],
+  "durable_objects": { "bindings": [{ "name": "SHOW", "class_name": "Show" }] },
+  "migrations": [{ "tag": "v1", "new_sqlite_classes": ["Show"] }],
+  // the board indexer: new events into D1 and every permit's status(), once a minute
+  "triggers": { "crons": ["* * * * *"] },
+  "vars": {
+    // comma-separated, tried in order. The public RPC can rate-limit Cloudflare's egress on eth_getLogs, so a
+    // provider with higher limits may go first.
+    "RPC_URL": "https://rpc.mainnet.chain.robinhood.com",
+    // where the Turnstile token must come from
+    "TURNSTILE_HOSTNAMES": "probielabs.com,www.probielabs.com",
+    // every visitor together: messages per UTC hour, and model spend per UTC day in dollars
+    "HOURLY_MESSAGES": "600",
+    "DAILY_USD": "10",
+    // the show agent's real transactions per UTC hour and per UTC day
+    "TX_HOURLY": "150",
+    "TX_DAILY": "1000",
+    // $PROBIE, and the burn terms: whole tokens burned per extra message past the free caps, and the most per burn
+    "TOKEN_ADDRESS": "0x5b31490AB9fFFad231fF1E023B5649Cb284d5D12",
+    "BURN_PER_SHOT": "10000",
+    "MAX_SHOTS_PER_CLAIM": "50"
+  },
+  "observability": { "enabled": true }
+}

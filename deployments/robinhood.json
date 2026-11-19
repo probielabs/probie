@@ -29,9 +29,21 @@
   },
   "liveShow": {
     "safe": "0x27057A0a4048D08cf513B406cE17b6F5adFe12c1",
-    "permit": "0xF9e98d1E483920F8484A4c47ecf094F982771511",
-    "agent": "0x407B4880F130b39EB4Aa727E035cB121dB0524e4",
-    "note": "Our own agent on https://probielabs.com: level 0, no approved payees, so every payment it tries is a strike."
+    "permit": "0xaC2E81809d11e8117DD946d2C941857f411b94Ec",
+    "agent": "0xDBa9f26D9741AdE888a891615c01DB287841384c",
+    "note": "Our own agent on https://probielabs.com since 19 Nov 2026: level 2, no approved payees, so it may pay someone new up to $10 a day. Its backend is in show/.",
+    "earlier": [
+      {
+        "permit": "0x9247C1Bb5eAe63A9384A2E4CC4Aa02bd7E585E15",
+        "agent": "0x407B4880F130b39EB4Aa727E035cB121dB0524e4",
+        "note": "18-19 Nov 2026, level 2: paid $10, then three strikes paused its new payees."
+      },
+      {
+        "permit": "0xF9e98d1E483920F8484A4c47ecf094F982771511",
+        "agent": "0x407B4880F130b39EB4Aa727E035cB121dB0524e4",
+        "note": "17-18 Nov 2026, level 0, no approved payees: every payment it tried was a strike."
+      }
+    ]
   },
   "explorer": "https://robinhoodchain.blockscout.com"
 }

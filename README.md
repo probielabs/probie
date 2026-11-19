@@ -15,7 +15,8 @@ happens above it.
 - X: https://x.com/ProbieLabs
 
 This repo holds the Probie contracts, the only code that touches your funds. Both contracts are deployed and
-verified on Robinhood Chain. The site and the live show run on our own servers.
+verified on Robinhood Chain. It also holds the live show's backend, in [show/](show/): the demo agent, its one tool,
+and the path every payment it tries takes through its permit.
 
 ```mermaid
 flowchart LR
@@ -32,6 +33,7 @@ flowchart LR
 | [How it works](docs/how-it-works.md) | The pieces, one payment step by step, levels, strikes, and who can do what. |
 | [Integrate](docs/integrate.md) | Open a permit from your Safe, pay from your agent, read permits for a dashboard. |
 | [Example](examples/) | One payment with viem, runnable read-only against the live show. |
+| [The live show](show/) | The show's Cloudflare Worker: the agent and its prompt, the pay path, the caps, the board indexer. |
 | [Security](SECURITY.md) | The hard cap, the audit status, known limits, and how to report a bug. |
 | [Deployments](deployments/robinhood.json) | Every address, the deploy transaction and the verification links. |
 
@@ -42,7 +44,8 @@ flowchart LR
 | `ProbieFactory` | `0xe475F59873Eb3EAfCf42b70dF64DcABd071715CB` |
 | `ProbiePermit` (implementation) | `0x754Ecd0dCf43249A72057941280060a4Cef546a1` |
 | The live show's Safe | `0x27057A0a4048D08cf513B406cE17b6F5adFe12c1` |
-| The live show's permit | `0xF9e98d1E483920F8484A4c47ecf094F982771511` |
+| The live show's permit (level 2, since 19 Nov 2026) | `0xaC2E81809d11e8117DD946d2C941857f411b94Ec` |
+| Its earlier permits | `0x9247C1Bb5eAe63A9384A2E4CC4Aa02bd7E585E15` (level 2), `0xF9e98d1E483920F8484A4c47ecf094F982771511` (level 0) |
 
 The factory was deployed in block 116847264 (17 Nov 2026).
 

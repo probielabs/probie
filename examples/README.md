@@ -11,14 +11,14 @@ What an agent does each time it wants to pay someone:
 ```shell
 npm install
 
-# read-only: try it against our live show's permit (level 0, no approved payees)
+# read-only: try it against our show's level-0 permit (no approved payees)
 PERMIT=0xF9e98d1E483920F8484A4c47ecf094F982771511 TO=0x000000000000000000000000000000000000dEaD AMOUNT=5 npm run agent
 
 # your own agent: AGENT_KEY is the agent's key, the one the permit was opened for
 PERMIT=0x… TO=0x… AMOUNT=1.5 AGENT_KEY=0x… npm run agent
 ```
 
-Against the live show it prints the permit's state and `check(...) -> PAYEE_NOT_ALLOWED`: at level 0 the agent may
+Against that permit it prints the permit's state and `check(...) -> PAYEE_NOT_ALLOWED`: at level 0 the agent may
 only pay addresses its owner approved, and that permit has none.
 
 Keep `AGENT_KEY` out of files and shell history. The agent key can only call `pay()`; it cannot change its level,

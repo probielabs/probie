@@ -2,3 +2,7 @@ out/
 cache/
 broadcast/
 .env
+show/node_modules/
+show/.wrangler/
+show/.dev.vars
+show/worker-configuration.d.ts
